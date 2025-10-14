@@ -11,8 +11,8 @@ const Index = () => {
       {/* Header */}
       <header className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-primary mb-1">VocabVintage</h1>
-          <p className="text-sm text-muted-foreground">Your Daily Language Companion</p>
+          <h1 className="text-3xl font-bold text-primary mb-1">מילון וינטג׳</h1>
+          <p className="text-sm text-muted-foreground">המלווה שלך ללימוד שפות</p>
         </div>
         <button 
           onClick={() => navigate("/settings")}
@@ -29,28 +29,28 @@ const Index = () => {
       <div className="max-w-md mx-auto space-y-4">
         <NavigationCard
           icon={BookOpen}
-          title="Vocabulary"
+          title="אוצר מילים"
           emoji="📘"
           to="/vocabulary"
           delay={0}
         />
         <NavigationCard
           icon={Bookmark}
-          title="Useful Words"
+          title="מילים שימושיות"
           emoji="📗"
           to="/useful-words"
           delay={100}
         />
         <NavigationCard
           icon={Mic}
-          title="Random Dictation"
+          title="הכתבה אקראית"
           emoji="🎯"
           to="/dictation"
           delay={200}
         />
         <NavigationCard
           icon={Dices}
-          title="Roulette"
+          title="רולטה"
           emoji="🎰"
           to="/roulette"
           delay={300}

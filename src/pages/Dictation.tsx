@@ -15,18 +15,18 @@ const Dictation = () => {
         </button>
         <div>
           <h1 className="text-3xl font-bold text-primary flex items-center gap-2">
-            🎯 Random Dictation
+            🎯 הכתבה אקראית
           </h1>
-          <p className="text-sm text-muted-foreground">Practice listening and writing</p>
+          <p className="text-sm text-muted-foreground">תרגל האזנה וכתיבה</p>
         </div>
       </header>
 
       <div className="max-w-md mx-auto">
         <div className="vintage-shadow bg-card rounded-xl p-8 border-2 border-border text-center">
           <div className="text-6xl mb-4">🎧</div>
-          <h2 className="text-xl font-semibold text-foreground mb-2">Coming Soon</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">בקרוב</h2>
           <p className="text-muted-foreground">
-            Test your listening skills with random dictation exercises
+            בדוק את כישורי ההאזנה שלך עם תרגילי הכתבה אקראיים
           </p>
         </div>
       </div>

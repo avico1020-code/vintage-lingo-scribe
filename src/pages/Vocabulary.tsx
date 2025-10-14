@@ -15,18 +15,18 @@ const Vocabulary = () => {
         </button>
         <div>
           <h1 className="text-3xl font-bold text-primary flex items-center gap-2">
-            📘 Vocabulary
+            📘 אוצר מילים
           </h1>
-          <p className="text-sm text-muted-foreground">Build your word collection</p>
+          <p className="text-sm text-muted-foreground">בנה את אוסף המילים שלך</p>
         </div>
       </header>
 
       <div className="max-w-md mx-auto">
         <div className="vintage-shadow bg-card rounded-xl p-8 border-2 border-border text-center">
           <div className="text-6xl mb-4">📚</div>
-          <h2 className="text-xl font-semibold text-foreground mb-2">Coming Soon</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">בקרוב</h2>
           <p className="text-muted-foreground">
-            Your vocabulary practice feature is being prepared
+            תכונת תרגול אוצר המילים שלך בהכנה
           </p>
         </div>
       </div>

@@ -13,17 +13,17 @@ const Settings = () => {
         >
           <ArrowLeft className="w-5 h-5 text-primary" />
         </button>
-        <h1 className="text-3xl font-bold text-primary">Settings</h1>
+        <h1 className="text-3xl font-bold text-primary">הגדרות</h1>
       </header>
 
       <div className="max-w-md mx-auto space-y-4">
         <div className="vintage-shadow bg-card rounded-xl p-6 border-2 border-border">
           <div className="flex items-center gap-3 mb-2">
             <Clock className="w-5 h-5 text-primary" />
-            <h3 className="text-lg font-semibold text-foreground">Daily Goal</h3>
+            <h3 className="text-lg font-semibold text-foreground">יעד יומי</h3>
           </div>
           <p className="text-sm text-muted-foreground mb-4">
-            Set your daily practice time goal
+            הגדר את יעד זמן התרגול היומי שלך
           </p>
           <input
             type="number"
@@ -32,27 +32,27 @@ const Settings = () => {
             max={120}
             className="w-full px-4 py-2 bg-secondary rounded-lg border-2 border-border focus:border-accent outline-none"
           />
-          <span className="text-xs text-muted-foreground mt-1 block">Minutes per day</span>
+          <span className="text-xs text-muted-foreground mt-1 block">דקות ביום</span>
         </div>
 
         <div className="vintage-shadow bg-card rounded-xl p-6 border-2 border-border">
           <div className="flex items-center gap-3 mb-2">
             <Globe className="w-5 h-5 text-primary" />
-            <h3 className="text-lg font-semibold text-foreground">Learning Language</h3>
+            <h3 className="text-lg font-semibold text-foreground">שפת הלימוד</h3>
           </div>
           <p className="text-sm text-muted-foreground mb-4">
-            Choose the language you're learning
+            בחר את השפה שאתה לומד
           </p>
           <select className="w-full px-4 py-2 bg-secondary rounded-lg border-2 border-border focus:border-accent outline-none">
-            <option>English</option>
-            <option>Spanish</option>
-            <option>French</option>
-            <option>German</option>
-            <option>Italian</option>
-            <option>Portuguese</option>
-            <option>Japanese</option>
-            <option>Korean</option>
-            <option>Chinese</option>
+            <option>אנגלית</option>
+            <option>ספרדית</option>
+            <option>צרפתית</option>
+            <option>גרמנית</option>
+            <option>איטלקית</option>
+            <option>פורטוגזית</option>
+            <option>יפנית</option>
+            <option>קוריאנית</option>
+            <option>סינית</option>
           </select>
         </div>
 
@@ -61,8 +61,8 @@ const Settings = () => {
             <div className="flex items-center gap-3">
               <Volume2 className="w-5 h-5 text-primary" />
               <div>
-                <h3 className="text-lg font-semibold text-foreground">Sound Effects</h3>
-                <p className="text-xs text-muted-foreground">Play sounds on achievements</p>
+                <h3 className="text-lg font-semibold text-foreground">אפקטי קול</h3>
+                <p className="text-xs text-muted-foreground">השמע צלילים בעת השגת הישגים</p>
               </div>
             </div>
             <label className="relative inline-block w-12 h-6">
@@ -78,8 +78,8 @@ const Settings = () => {
             <div className="flex items-center gap-3">
               <Bell className="w-5 h-5 text-primary" />
               <div>
-                <h3 className="text-lg font-semibold text-foreground">Daily Reminders</h3>
-                <p className="text-xs text-muted-foreground">Get notified to practice</p>
+                <h3 className="text-lg font-semibold text-foreground">תזכורות יומיות</h3>
+                <p className="text-xs text-muted-foreground">קבל התראות לתרגול</p>
               </div>
             </div>
             <label className="relative inline-block w-12 h-6">

@@ -15,18 +15,18 @@ const UsefulWords = () => {
         </button>
         <div>
           <h1 className="text-3xl font-bold text-primary flex items-center gap-2">
-            📗 Useful Words
+            📗 מילים שימושיות
           </h1>
-          <p className="text-sm text-muted-foreground">Essential phrases and expressions</p>
+          <p className="text-sm text-muted-foreground">ביטויים וביטוים חיוניים</p>
         </div>
       </header>
 
       <div className="max-w-md mx-auto">
         <div className="vintage-shadow bg-card rounded-xl p-8 border-2 border-border text-center">
           <div className="text-6xl mb-4">💬</div>
-          <h2 className="text-xl font-semibold text-foreground mb-2">Coming Soon</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">בקרוב</h2>
           <p className="text-muted-foreground">
-            Discover the most useful words and phrases
+            גלה את המילים והביטויים השימושיים ביותר
           </p>
         </div>
       </div>

@@ -15,18 +15,18 @@ const Roulette = () => {
         </button>
         <div>
           <h1 className="text-3xl font-bold text-primary flex items-center gap-2">
-            🎰 Roulette
+            🎰 רולטה
           </h1>
-          <p className="text-sm text-muted-foreground">Spin for a random challenge</p>
+          <p className="text-sm text-muted-foreground">סובב לאתגר אקראי</p>
         </div>
       </header>
 
       <div className="max-w-md mx-auto">
         <div className="vintage-shadow bg-card rounded-xl p-8 border-2 border-border text-center">
           <div className="text-6xl mb-4">🎲</div>
-          <h2 className="text-xl font-semibold text-foreground mb-2">Coming Soon</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-2">בקרוב</h2>
           <p className="text-muted-foreground">
-            Get random vocabulary challenges and games
+            קבל אתגרי אוצר מילים ומשחקים אקראיים
           </p>
         </div>
       </div>

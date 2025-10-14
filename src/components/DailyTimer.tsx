@@ -81,8 +81,8 @@ export const DailyTimer = () => {
 
     // Toast notification
     toast({
-      title: "Great job! 🎉",
-      description: "You reached your daily goal!",
+      title: "כל הכבוד! 🎉",
+      description: "הגעת ליעד היומי שלך!",
       duration: 3000,
     });
   };
@@ -106,7 +106,7 @@ export const DailyTimer = () => {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <Clock className="w-6 h-6 text-primary" />
-            <span className="text-lg font-semibold text-foreground">Today's Practice</span>
+            <span className="text-lg font-semibold text-foreground">התרגול היומי</span>
           </div>
           <div className="text-2xl font-bold text-primary">
             {formatTime(seconds)}
@@ -122,8 +122,8 @@ export const DailyTimer = () => {
         </div>
 
         <div className="mt-2 text-sm text-muted-foreground text-center">
-          Goal: {DAILY_GOAL_MINUTES} minutes
-          {goalReached && " ✨ Completed!"}
+          יעד: {DAILY_GOAL_MINUTES} דקות
+          {goalReached && " ✨ הושלם!"}
         </div>
       </div>
     </div>
