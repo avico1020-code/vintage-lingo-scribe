@@ -1,15 +1,18 @@
 import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Roulette = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-background p-6">
       <header className="mb-8 flex items-center gap-4">
-        <Link to="/">
-          <button className="w-12 h-12 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center">
-            <ArrowLeft className="w-5 h-5 text-primary" />
-          </button>
-        </Link>
+        <button 
+          onClick={() => navigate("/")}
+          className="w-12 h-12 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center"
+        >
+          <ArrowLeft className="w-5 h-5 text-primary" />
+        </button>
         <div>
           <h1 className="text-3xl font-bold text-primary flex items-center gap-2">
             🎰 Roulette
