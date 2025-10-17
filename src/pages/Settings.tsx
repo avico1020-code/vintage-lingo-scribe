@@ -1,8 +1,31 @@
 import { ArrowLeft, Clock, Globe, Volume2, Bell } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { toast } from "@/hooks/use-toast";
 
 const Settings = () => {
   const navigate = useNavigate();
+  const [dailyGoal, setDailyGoal] = useState(15);
+
+  useEffect(() => {
+    const savedGoal = localStorage.getItem("dailyGoalMinutes");
+    if (savedGoal) {
+      setDailyGoal(parseInt(savedGoal));
+    }
+  }, []);
+
+  const handleDailyGoalChange = (value: string) => {
+    const minutes = parseInt(value);
+    if (minutes >= 5 && minutes <= 120) {
+      setDailyGoal(minutes);
+      localStorage.setItem("dailyGoalMinutes", minutes.toString());
+      toast({
+        title: "היעד עודכן",
+        description: `יעד יומי חדש: ${minutes} דקות`,
+        duration: 2000,
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background p-6">
@@ -27,7 +50,8 @@ const Settings = () => {
           </p>
           <input
             type="number"
-            defaultValue={15}
+            value={dailyGoal}
+            onChange={(e) => handleDailyGoalChange(e.target.value)}
             min={5}
             max={120}
             className="w-full px-4 py-2 bg-secondary rounded-lg border-2 border-border focus:border-accent outline-none"

@@ -3,11 +3,10 @@ import { Clock } from "lucide-react";
 import confetti from "canvas-confetti";
 import { toast } from "@/hooks/use-toast";
 
-const DAILY_GOAL_MINUTES = 15;
-
 export const DailyTimer = () => {
   const [seconds, setSeconds] = useState(0);
   const [goalReached, setGoalReached] = useState(false);
+  const [dailyGoalMinutes, setDailyGoalMinutes] = useState(15);
 
   useEffect(() => {
     // Load today's session data
@@ -16,6 +15,11 @@ export const DailyTimer = () => {
       const savedDate = localStorage.getItem("timerDate");
       const savedSeconds = localStorage.getItem("timerSeconds");
       const savedGoalReached = localStorage.getItem("goalReached");
+      const savedGoal = localStorage.getItem("dailyGoalMinutes");
+
+      if (savedGoal) {
+        setDailyGoalMinutes(parseInt(savedGoal));
+      }
 
       if (savedDate === today) {
         setSeconds(parseInt(savedSeconds || "0"));
@@ -40,7 +44,7 @@ export const DailyTimer = () => {
 
         // Check if goal reached
         const minutes = Math.floor(newSeconds / 60);
-        if (minutes >= DAILY_GOAL_MINUTES && !goalReached) {
+        if (minutes >= dailyGoalMinutes && !goalReached) {
           celebrateGoal();
           setGoalReached(true);
           localStorage.setItem("goalReached", "true");
@@ -51,7 +55,7 @@ export const DailyTimer = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [goalReached]);
+  }, [goalReached, dailyGoalMinutes]);
 
   const celebrateGoal = () => {
     // Confetti animation
@@ -98,7 +102,7 @@ export const DailyTimer = () => {
     return `${minutes}m ${secs}s`;
   };
 
-  const progressPercent = Math.min((seconds / (DAILY_GOAL_MINUTES * 60)) * 100, 100);
+  const progressPercent = Math.min((seconds / (dailyGoalMinutes * 60)) * 100, 100);
 
   return (
     <div className="w-full max-w-md mx-auto mb-8">
@@ -122,7 +126,7 @@ export const DailyTimer = () => {
         </div>
 
         <div className="mt-2 text-sm text-muted-foreground text-center">
-          יעד: {DAILY_GOAL_MINUTES} דקות
+          יעד: {dailyGoalMinutes} דקות
           {goalReached && " ✨ הושלם!"}
         </div>
       </div>
