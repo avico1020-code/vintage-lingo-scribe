@@ -1,7 +1,8 @@
-import { Settings, Search, Plus } from "lucide-react";
+import { Settings, Search, Plus, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { DailyTimer } from "@/components/DailyTimer";
 import { useState, useEffect } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 interface VocabularyListItem {
   id: string;
@@ -10,6 +11,7 @@ interface VocabularyListItem {
 
 const Vocabulary = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [lists, setLists] = useState<VocabularyListItem[]>([]);
 
   useEffect(() => {
@@ -30,6 +32,19 @@ const Vocabulary = () => {
     const updatedLists = [...lists, newList];
     setLists(updatedLists);
     localStorage.setItem("vocabularyLists", JSON.stringify(updatedLists));
+  };
+
+  const deleteList = (listId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const updatedLists = lists.filter(l => l.id !== listId);
+    setLists(updatedLists);
+    localStorage.setItem("vocabularyLists", JSON.stringify(updatedLists));
+    localStorage.removeItem(`vocabularyWords_${listId}`);
+    
+    toast({
+      title: "נמחק בהצלחה",
+      description: "הרשימה הוסרה",
+    });
   };
 
   return (
@@ -64,13 +79,20 @@ const Vocabulary = () => {
       <div className="max-w-md mx-auto mt-8">
         <div className="space-y-3">
           {lists.map((list) => (
-            <button
-              key={list.id}
-              onClick={() => navigate(`/vocabulary/${list.id}`)}
-              className="w-full bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all p-6 text-right"
-            >
-              <h3 className="text-xl font-semibold text-foreground">{list.name}</h3>
-            </button>
+            <div key={list.id} className="flex items-center gap-3">
+              <button
+                onClick={() => navigate(`/vocabulary/${list.id}`)}
+                className="flex-1 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all p-6 text-right"
+              >
+                <h3 className="text-xl font-semibold text-foreground">{list.name}</h3>
+              </button>
+              <button
+                onClick={(e) => deleteList(list.id, e)}
+                className="w-12 h-12 bg-destructive/10 rounded-xl vintage-shadow border-2 border-destructive/20 hover:bg-destructive/20 transition-all flex items-center justify-center flex-shrink-0"
+              >
+                <Trash2 className="w-5 h-5 text-destructive" />
+              </button>
+            </div>
           ))}
           <button
             onClick={addNewList}
