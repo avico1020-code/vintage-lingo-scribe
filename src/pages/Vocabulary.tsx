@@ -1,33 +1,85 @@
-import { ArrowLeft } from "lucide-react";
+import { Settings, Search, Plus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { DailyTimer } from "@/components/DailyTimer";
+import { useState, useEffect } from "react";
+
+interface VocabularyListItem {
+  id: string;
+  name: string;
+}
 
 const Vocabulary = () => {
   const navigate = useNavigate();
+  const [lists, setLists] = useState<VocabularyListItem[]>([]);
+
+  useEffect(() => {
+    const savedLists = localStorage.getItem("vocabularyLists");
+    if (savedLists) {
+      setLists(JSON.parse(savedLists));
+    } else {
+      // Create initial list
+      const initialList = { id: "1", name: "רשימה 1" };
+      setLists([initialList]);
+      localStorage.setItem("vocabularyLists", JSON.stringify([initialList]));
+    }
+  }, []);
+
+  const addNewList = () => {
+    const newId = String(lists.length + 1);
+    const newList = { id: newId, name: `רשימה ${newId}` };
+    const updatedLists = [...lists, newList];
+    setLists(updatedLists);
+    localStorage.setItem("vocabularyLists", JSON.stringify(updatedLists));
+  };
 
   return (
     <div className="min-h-screen bg-background p-6">
-      <header className="mb-8 flex items-center gap-4">
-        <button 
-          onClick={() => navigate("/")}
-          className="w-12 h-12 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center"
-        >
-          <ArrowLeft className="w-5 h-5 text-primary" />
-        </button>
-        <div>
-          <h1 className="text-3xl font-bold text-primary flex items-center gap-2">
-            📘 אוצר מילים
-          </h1>
-          <p className="text-sm text-muted-foreground">בנה את אוסף המילים שלך</p>
+      {/* Header */}
+      <header className="mb-8">
+        <div className="flex justify-between items-start mb-4">
+          <div>
+            <h1 className="text-3xl font-bold text-primary mb-1">אוצר מילים</h1>
+            <p className="text-sm text-muted-foreground">בנה את אוסף המילים שלך</p>
+          </div>
+        </div>
+        <div className="flex justify-between items-center">
+          <button 
+            className="w-12 h-12 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center"
+          >
+            <Search className="w-5 h-5 text-primary" />
+          </button>
+          <button 
+            onClick={() => navigate("/settings")}
+            className="w-12 h-12 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center"
+          >
+            <Settings className="w-5 h-5 text-primary" />
+          </button>
         </div>
       </header>
 
-      <div className="max-w-md mx-auto">
-        <div className="vintage-shadow bg-card rounded-xl p-8 border-2 border-border text-center">
-          <div className="text-6xl mb-4">📚</div>
-          <h2 className="text-xl font-semibold text-foreground mb-2">בקרוב</h2>
-          <p className="text-muted-foreground">
-            תכונת תרגול אוצר המילים שלך בהכנה
-          </p>
+      {/* Daily Timer */}
+      <DailyTimer />
+
+      {/* Lists */}
+      <div className="max-w-md mx-auto mt-8">
+        <div className="flex items-start gap-4">
+          <div className="flex-1 space-y-3">
+            {lists.map((list) => (
+              <button
+                key={list.id}
+                onClick={() => navigate(`/vocabulary/${list.id}`)}
+                className="w-full bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all p-6 text-right"
+              >
+                <h3 className="text-xl font-semibold text-foreground">{list.name}</h3>
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={addNewList}
+            className="w-14 h-14 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center flex-shrink-0"
+          >
+            <Plus className="w-6 h-6 text-primary" />
+          </button>
         </div>
       </div>
     </div>

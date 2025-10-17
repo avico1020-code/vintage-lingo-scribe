@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Settings from "./pages/Settings";
 import Vocabulary from "./pages/Vocabulary";
+import VocabularyList from "./pages/VocabularyList";
 import UsefulWords from "./pages/UsefulWords";
 import Dictation from "./pages/Dictation";
 import Roulette from "./pages/Roulette";
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/vocabulary" element={<Vocabulary />} />
+          <Route path="/vocabulary/:listId" element={<VocabularyList />} />
           <Route path="/useful-words" element={<UsefulWords />} />
           <Route path="/dictation" element={<Dictation />} />
           <Route path="/roulette" element={<Roulette />} />
