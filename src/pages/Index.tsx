@@ -1,6 +1,6 @@
 import { DailyTimer } from "@/components/DailyTimer";
 import { NavigationCard } from "@/components/NavigationCard";
-import { BookOpen, Bookmark, Mic, Dices, Settings } from "lucide-react";
+import { BookOpen, Bookmark, Mic, Dices, Settings, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
@@ -9,17 +9,26 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background p-6">
       {/* Header */}
-      <header className="flex justify-between items-center mb-8">
-        <div>
-          <h1 className="text-3xl font-bold text-primary mb-1">מילון וינטג׳</h1>
-          <p className="text-sm text-muted-foreground">המלווה שלך ללימוד שפות</p>
+      <header className="mb-8">
+        <div className="flex justify-between items-start mb-4">
+          <div>
+            <h1 className="text-3xl font-bold text-primary mb-1">מילון וינטג׳</h1>
+            <p className="text-sm text-muted-foreground">המלווה שלך ללימוד שפות</p>
+          </div>
         </div>
-        <button 
-          onClick={() => navigate("/settings")}
-          className="w-12 h-12 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center"
-        >
-          <Settings className="w-5 h-5 text-primary" />
-        </button>
+        <div className="flex justify-between items-center">
+          <button 
+            className="w-12 h-12 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center"
+          >
+            <Search className="w-5 h-5 text-primary" />
+          </button>
+          <button 
+            onClick={() => navigate("/settings")}
+            className="w-12 h-12 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center"
+          >
+            <Settings className="w-5 h-5 text-primary" />
+          </button>
+        </div>
       </header>
 
       {/* Daily Timer */}
