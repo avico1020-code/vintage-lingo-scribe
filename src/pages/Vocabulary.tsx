@@ -62,21 +62,19 @@ const Vocabulary = () => {
 
       {/* Lists */}
       <div className="max-w-md mx-auto mt-8">
-        <div className="flex items-start gap-4">
-          <div className="flex-1 space-y-3">
-            {lists.map((list) => (
-              <button
-                key={list.id}
-                onClick={() => navigate(`/vocabulary/${list.id}`)}
-                className="w-full bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all p-6 text-right"
-              >
-                <h3 className="text-xl font-semibold text-foreground">{list.name}</h3>
-              </button>
-            ))}
-          </div>
+        <div className="space-y-3">
+          {lists.map((list) => (
+            <button
+              key={list.id}
+              onClick={() => navigate(`/vocabulary/${list.id}`)}
+              className="w-full bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all p-6 text-right"
+            >
+              <h3 className="text-xl font-semibold text-foreground">{list.name}</h3>
+            </button>
+          ))}
           <button
             onClick={addNewList}
-            className="w-14 h-14 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center flex-shrink-0"
+            className="w-full bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all p-6 flex items-center justify-center"
           >
             <Plus className="w-6 h-6 text-primary" />
           </button>
