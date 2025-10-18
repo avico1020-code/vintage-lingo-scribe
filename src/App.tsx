@@ -8,6 +8,7 @@ import Settings from "./pages/Settings";
 import Vocabulary from "./pages/Vocabulary";
 import VocabularyList from "./pages/VocabularyList";
 import UsefulWords from "./pages/UsefulWords";
+import UsefulWordsList from "./pages/UsefulWordsList";
 import Dictation from "./pages/Dictation";
 import Roulette from "./pages/Roulette";
 import NotFound from "./pages/NotFound";
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/vocabulary" element={<Vocabulary />} />
           <Route path="/vocabulary/:listId" element={<VocabularyList />} />
           <Route path="/useful-words" element={<UsefulWords />} />
+          <Route path="/useful-words/:listId" element={<UsefulWordsList />} />
           <Route path="/dictation" element={<Dictation />} />
           <Route path="/roulette" element={<Roulette />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
