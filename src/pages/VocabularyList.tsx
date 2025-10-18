@@ -76,6 +76,22 @@ const VocabularyList = () => {
       return;
     }
 
+    // Check if word already exists in the list
+    const isDuplicate = words.some(
+      word => 
+        word.original.toLowerCase() === newOriginal.trim().toLowerCase() ||
+        word.translation.toLowerCase() === newTranslation.trim().toLowerCase()
+    );
+
+    if (isDuplicate) {
+      toast({
+        title: "שגיאה",
+        description: "המילה כבר קיימת ברשימה",
+        variant: "destructive",
+      });
+      return;
+    }
+
     const newWord: Word = {
       id: Date.now().toString(),
       original: newOriginal.trim(),
@@ -86,11 +102,6 @@ const VocabularyList = () => {
     saveWords(updatedWords);
     setNewOriginal("");
     setNewTranslation("");
-
-    toast({
-      title: "נוסף בהצלחה",
-      description: "המילה נוספה לרשימה",
-    });
   };
 
   const deleteWord = (id: string) => {
