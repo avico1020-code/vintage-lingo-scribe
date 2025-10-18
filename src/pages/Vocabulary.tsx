@@ -1,4 +1,4 @@
-import { Settings, Search, Plus, Trash2 } from "lucide-react";
+import { Settings, Search, Plus, Trash2, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { DailyTimer } from "@/components/DailyTimer";
 import { useState, useEffect } from "react";
@@ -56,6 +56,12 @@ const Vocabulary = () => {
             <h1 className="text-3xl font-bold text-primary mb-1">אוצר מילים</h1>
             <p className="text-sm text-muted-foreground">בנה את אוסף המילים שלך</p>
           </div>
+          <button 
+            onClick={() => navigate("/")}
+            className="w-12 h-12 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center"
+          >
+            <ArrowRight className="w-5 h-5 text-primary" />
+          </button>
         </div>
         <div className="flex justify-between items-center">
           <button 
