@@ -1,6 +1,7 @@
 import { Settings, Search, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { DailyTimer } from "@/components/DailyTimer";
+import { SearchDialog } from "@/components/SearchDialog";
 import { usefulWordsData } from "@/data/usefulWords";
 
 const UsefulWords = () => {
@@ -23,11 +24,7 @@ const UsefulWords = () => {
           </button>
         </div>
         <div className="flex justify-between items-center">
-          <button 
-            className="w-12 h-12 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center"
-          >
-            <Search className="w-5 h-5 text-primary" />
-          </button>
+          <SearchDialog />
           <button 
             onClick={() => navigate("/settings")}
             className="w-12 h-12 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center"

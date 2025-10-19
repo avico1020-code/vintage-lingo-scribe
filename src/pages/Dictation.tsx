@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { DailyTimer } from "@/components/DailyTimer";
+import { SearchDialog } from "@/components/SearchDialog";
 import { usefulWordsData } from "@/data/usefulWords";
 
 interface Word {
@@ -177,9 +178,7 @@ const Dictation = () => {
             <Settings className="w-5 h-5 text-primary" />
           </button>
           <DailyTimer />
-          <button className="w-12 h-12 bg-card rounded-xl vintage-shadow border-2 border-border hover:border-accent transition-all flex items-center justify-center opacity-50 cursor-not-allowed">
-            <Search className="w-5 h-5 text-primary" />
-          </button>
+          <SearchDialog />
         </div>
       </header>
 
